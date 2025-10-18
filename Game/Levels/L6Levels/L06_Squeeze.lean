@@ -27,27 +27,28 @@ TheoremDoc SqueezeThm as "SqueezeThm" in "Theorems"
 
 /-- Prove this
 -/
-Statement SqueezeThm (a b c : ℕ → ℝ) (L : ℝ) (aToL : SeqLim a L)
-(cToL : SeqLim c L) (aLeb : ∀ n, a n ≤ b n) (bLec : ∀ n, b n ≤ c n) :
+Statement SqueezeThm (a b c : ℕ → ℝ) (L : ℝ) (N : ℕ) (aToL : SeqLim a L) 
+(cToL : SeqLim c L) (aLeb : ∀ n ≥ N, a n ≤ b n) (bLec : ∀ n ≥ N, b n ≤ c n) :
   SeqLim b L := by
 intro ε hε
 specialize aToL ε hε
 specialize cToL ε hε
 choose Na hNa using aToL
 choose Nc hNc using cToL
-use Na + Nc
+use N+Na+Nc
 intro n hn
-have hna : Na ≤ n := by bound
-have hnc : Nc ≤ n := by bound
-specialize hNa n hna
-specialize hNc n hnc
+have hN1' : n ≥ N := by bound
+have hNa' : n ≥ Na := by bound
+have hNc' : n ≥ Nc := by bound
+specialize hNa n hNa'  
+specialize hNc n hNc'
+specialize aLeb n hN1'
+specialize bLec n hN1'
 rewrite [abs_lt] at hNa
 rewrite [abs_lt] at hNc
 rewrite [abs_lt]
 split_ands
-specialize aLeb n
 bound
-specialize bLec n
 bound
 
 
