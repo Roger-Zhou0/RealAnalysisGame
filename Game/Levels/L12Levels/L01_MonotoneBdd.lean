@@ -1,13 +1,13 @@
-import Game.Levels.L12Levels.L00_SubseqIterate
+import Game.Levels.L12Levels.L01_Choose
 
 World "Lecture12"
-Level 2
+Level 3
 Title "Monotone and Bounded Implies Cauchy"
 
 Introduction "
-# Level 2: Monotone and Bounded Implies Cauchy
+# Level 3: Monotone and Bounded Implies Cauchy
 
-Now we tackle one of the fundamental theorems of real analysis: every bounded monotone sequence is Cauchy (and hence convergent). This result provides a powerful convergence criterion that doesn't require knowing the limit beforehand.
+Now we tackle one of the fundamental theorems of real analysis: every bounded monotone sequence is Cauchy. This result provides a powerful convergence criterion that doesn't require knowing the limit beforehand.
 
 ## The Intuitive Picture
 
@@ -29,7 +29,7 @@ Then this theorem automatically applies to both rational and real sequences - Le
 
 ## Strategic Overview
 
-The proof uses contradiction. We'll assume a bounded monotone sequence is not Cauchy, which means there are persistent gaps of size `ε`. Using the `choose` tactic, we'll extract subsequences that witness these gaps. Then we'll apply your orbit result to show these gaps accumulate without bound, contradicting the boundedness.
+The proof uses contradiction. We'll assume a bounded monotone sequence is not Cauchy, which means there are persistent gaps of size `ε`. Using the `choose` tactic (as in the previous level), we'll extract subsequences that witness these gaps. Then we'll apply your orbit result to show these gaps accumulate without bound, contradicting the boundedness.
 
 **Your goal:** Prove that if `a : ℕ → X` is monotone and bounded above by `M`, then `a` is Cauchy.
 

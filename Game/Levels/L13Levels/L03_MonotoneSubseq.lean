@@ -22,6 +22,10 @@ Introduction "
 
 Assume your sequence `a : ℕ → X` does **not** have `UnBddPeaks`. Prove that it then has a `Monotone` subsequence. (In the homework, you will show the opposite: if the sequence *does* have `UnBddPeaks`, then it has an `Antitone` -- that is, non-increasing -- subsequence.)
 
+## New tactics:
+
+- `if` `then` `else`
+
 ## New theorems:
 
 - `lt_of_not_ge`
@@ -89,12 +93,7 @@ have hσ : ∀ n, k < σ n := by
 use σ
 split_ands
 apply Subseq_of_Iterate
-intro n
-by_cases hn : n ≤ k
-rewrite [τ'_eq]
-bound
-rewrite [τ'_eq]
-bound
+apply τ'_gt
 apply Monotone_of_succ
 intro n
 specialize hσ n

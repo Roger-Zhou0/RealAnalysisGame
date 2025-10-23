@@ -20,8 +20,11 @@ import Game.Levels.L10PsetIntro
 import Game.Levels.L11Lecture
 import Game.Levels.L11PsetIntro
 import Game.Levels.L12Lecture
+import Game.Levels.L12PsetIntro
+import Game.Levels.L13Lecture
+import Game.Levels.L13PsetIntro
 
--- exercise : why not `|a n - a (n + 1)|`?
+-- exercise for later : why not `|a n - a (n + 1)|`?
 
 Dependency NewtonsCalculationOfPi → L2Pset
 
@@ -48,6 +51,12 @@ Dependency Lecture11 → Lecture12
 Dependency Lecture11 → L11Pset
 
 Dependency L10Pset → Lecture12
+
+Dependency Lecture12 → L12Pset
+
+Dependency L11Pset → Lecture13
+
+Dependency Lecture13 → L13Pset
 
 -- Here's what we'll put on the title screen
 Title "An Introduction to (Formal) Real Analysis"

@@ -1,11 +1,11 @@
 import Game.Levels.L12Levels.L01_MonotoneBdd
 
 World "Lecture12"
-Level 3
+Level 4
 Title "Iterated Gaps"
 
 Introduction "
-# Level 3: Iterated Gaps
+# Level 4: Iterated Gaps
 
 Now it's time to prove the technical helper lemma that made Level 2 possible. This result captures the precise mechanism by which persistent gaps in a monotone sequence accumulate under iteration.
 

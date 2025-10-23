@@ -16,13 +16,13 @@ Theorem: `IsCauchyOfAntitoneBdd`.
 
 ## New definition: `Antitone`
 
-Hint: You don't need to reprove everything. I'll give you two tools:
+Hint: You don't need to reprove everything from scratch! I'll give you two tools:
 
 ## New theorems:
 
 - `MonotoneNeg_of_Antitone`: if `a` is `Antitone`, then `-a` is `Monotone`.
 
-- `IsCauchyNeg`: if `IsCauchy a`, then `IsCauchy (-a)`.
+- `IsCauchyNeg`: if `IsCauchy a`, then so is `IsCauchy (-a)`.
 
 "
 
@@ -58,14 +58,10 @@ TheoremDoc IsCauchyNeg as "IsCauchyNeg" in "Theorems"
 
 NewTheorem MonotoneNeg_of_Antitone IsCauchyNeg
 
-/--
-If a sequence `a : ℕ → X` (where `X` can be `ℚ` or `ℝ`) is antitone and bounded, then it is Cauchy.
--/
-TheoremDoc IsCauchyOfAntitoneBdd as "IsCauchyOfAntitoneBdd" in "Theorems"
 
-/-- Prove this
+/-- Prove `IsCauchyOfAntitoneBdd`
 -/
-Statement IsCauchyOfAntitoneBdd {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] [FloorSemiring X] (a : ℕ → X) (M : X) (hM : ∀ n, M ≤ a n) (ha : Antitone a)
+Statement  {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] [FloorSemiring X] (a : ℕ → X) (M : X) (hM : ∀ n, M ≤ a n) (ha : Antitone a)
     : IsCauchy a := by
 sorry
 
