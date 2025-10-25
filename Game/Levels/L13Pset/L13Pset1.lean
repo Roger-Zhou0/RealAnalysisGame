@@ -16,7 +16,7 @@ Prove `AntitoneSubseq_of_UnBddPeaks`
 theorem Antitone_of_succ {X : Type*} [Preorder X] (a : ℕ → X) (ha : ∀ n, a (n+1) ≤ a n) : Antitone a := by
 exact antitone_nat_of_succ_le ha
 
-/-- If `a (n+1) ≤ a n` holds for all `n`, then `a` is `Monotone`. -/
+/-- If `a (n+1) ≤ a n` holds for all `n`, then `a` is `Antitone`. -/
 TheoremDoc Antitone_of_succ as "Antitone_of_succ" in "Theorems"
 
 NewTheorem Antitone_of_succ
