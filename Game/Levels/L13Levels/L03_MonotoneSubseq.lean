@@ -22,7 +22,7 @@ Introduction "
 
 Assume your sequence `a : ℕ → X` does **not** have `UnBddPeaks`. Prove that it then has a `Monotone` subsequence. (In the homework, you will show the opposite: if the sequence *does* have `UnBddPeaks`, then it has an `Antitone` -- that is, non-increasing -- subsequence.)
 
-## New tactics:
+## New definition:
 
 - `if` `then` `else`
 
@@ -34,6 +34,10 @@ It says: If `¬ (m ≤ n)`, then `n < m`.
 
 
 "
+
+
+/-- If you have a proposition `P`, you can say `if P then x else y`. -/
+DefinitionDoc «if» as "if then else"
 
 /-- `(a : ℕ → X) (n : ℕ) := ∀ m > n, a m ≤ a n`
 
@@ -50,7 +54,7 @@ DefinitionDoc UnBddPeaks as "UnBddPeaks"
 
 def UnBddPeaks {X : Type*} [LinearOrder X] (a : ℕ → X) : Prop := ∀ k, ∃ n > k, IsAPeak a n
 
-NewDefinition IsAPeak UnBddPeaks
+NewDefinition IsAPeak UnBddPeaks  «if»
 
 /-- If `¬ (m ≤ n)`, then `n < m`. -/
 TheoremDoc lt_of_not_ge as "lt_of_not_ge" in "Theorems"
