@@ -63,6 +63,13 @@ NewTheorem MonotoneNeg_of_Antitone IsCauchyNeg
 -/
 Statement  {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] [FloorSemiring X] (a : ℕ → X) (M : X) (hM : ∀ n, M ≤ a n) (ha : Antitone a)
     : IsCauchy a := by
-sorry
+let b := -a
+have hb : Monotone b := by apply MonotoneNeg_of_Antitone a ha
+have b_bdd : ∀ n, b n ≤ -M := by intro n; change -a n ≤ - M; linarith [hM n]
+have bCauchy : IsCauchy b := IsCauchyOfMonotoneBdd b (-M) b_bdd hb
+have negbCauchy : IsCauchy (-b) := IsCauchyNeg b bCauchy
+change IsCauchy (- -a) at negbCauchy
+rewrite [show - - a = a by ring_nf] at negbCauchy
+apply negbCauchy
 
 Conclusion ""
