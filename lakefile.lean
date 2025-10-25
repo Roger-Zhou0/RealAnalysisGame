@@ -50,7 +50,7 @@ package Game where
 
 -- THIS \/
     /- to display the values of let declarations, like `:= 42` (IMPORTANT)  -/
-    ⟨`pp.showLetValues, true⟩,
+--    ⟨`pp.showLetValues, true⟩,
 -- THIS /\
 
     /- make all assumptions always accessible. -/
